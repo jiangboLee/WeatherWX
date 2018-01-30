@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     motto: 'nihao',
+    location: '上海',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -15,20 +16,8 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    var location;
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    }),
-    wx.getLocation({
-      success: function(res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        location = latitude + ":" + longitude
-        console.log(res)
-      },
-    })
+  Weather: function() {
+    var _this = this
     wx.request({
       url: "https://api.seniverse.com/v3/weather/now.json",
       data: {
@@ -41,16 +30,57 @@ Page({
         'content-type': 'application/json'
       },
       method: "GET",
-      success: function(res) {
+      success: function (res) {
         console.log(res.data)
+        _this.setData({
+          location: "haha"
+        })
       },
-      fail: function(err) {
+      fail: function (err) {
         console.log(err)
       },
-      complete: function() {
+      complete: function () {
         wx.hideLoading()
       }
     })
+  },
+  onLoad: function () {
+    var location;
+    var _this = this;
+    wx.getLocation({
+      success: function(res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        location = latitude + ":" + longitude
+        console.log(res)
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
+        _this.Weather();
+      },
+      fail: function() {
+        wx.showToast({
+          title: '检测到您没获得位置权限，请先开启再来哦',
+          icon: "none",
+          duration: 3000    
+        })
+        setTimeout(function () {
+          // wx.hideToast()
+          wx.showLoading({
+            title: '加载中',
+            mask: true
+          })
+          _this.Weather();
+        }, 3000)
+      }
+    }) 
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '天气',
+      path: '/page/'
+    }
   }
   //   if (app.globalData.userInfo) {
   //     this.setData({
