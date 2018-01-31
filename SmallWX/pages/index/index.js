@@ -12,11 +12,17 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  // bindViewTap: function() {
+  //   wx.navigateTo({
+  //     url: '../logs/logs'
+  //   })
+  // },
+  gotest: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../scrollView/scrollView',
     })
   },
+
   //天气接口
   Weather: function(lat, longi) {
     var _this = this
