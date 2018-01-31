@@ -19,3 +19,7 @@
 .usermotto {
   margin-top: 200px;
 }
+
+#location {
+  color: red
+}

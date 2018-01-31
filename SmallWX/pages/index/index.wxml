@@ -7,7 +7,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view> -->
-  <view id='location' bindtap='Weather'>{{location}}</view>
+  <view id='location' bindtap='chooseLocation'>{{location}}</view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>

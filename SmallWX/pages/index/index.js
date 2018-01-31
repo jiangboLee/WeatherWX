@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 var location;
+var isOpenSetting = false;
 Page({
   data: {
     motto: 'nihao',
@@ -70,15 +71,19 @@ Page({
         // console.log(err)
       },
       complete: function () {
+        location = "youzhi"
         _this.Weather(lat, longi)
       }
     })
   },
   onLoad: function () {
+    this.getLocationAction()
+  },
+  getLocationAction: function() {
     var location;
     var _this = this;
     wx.getLocation({
-      success: function(res) {
+      success: function (res) {
         var latitude = res.latitude
         var longitude = res.longitude
         location = latitude + ":" + longitude
@@ -89,22 +94,54 @@ Page({
         })
         _this.genCodeLocation(latitude, longitude)
       },
-      fail: function() {
-        wx.showToast({
-          title: '检测到您没获得位置权限，请先开启再来哦',
-          icon: "none",
-          duration: 3000    
-        })
-        setTimeout(function () {
-          // wx.hideToast()
-          wx.showLoading({
-            title: '加载中',
-            mask: true
-          })
-          _this.Weather();
-        }, 3000)
+      fail: function () {
+        _this.Weather("", "");
       }
     }) 
+  },
+  onShow : function() {
+    // if (isOpenSetting) {
+    //   this.getLocationAction()
+    // }
+  },
+  chooseLocation: function() {
+      var isopenLoction;
+      var _this = this;
+      wx.getSetting({
+        success: (res) => {
+          console.log(res)
+          isopenLoction = res.authSetting["scope.userLocation"]
+          console.log(isopenLoction)
+          if (isopenLoction) {
+            wx.chooseLocation({
+              success: function (res) {
+                console.log(res)
+                _this.setData({
+                  location: res.address
+                })
+                location = res.latitude + ":" + res.longitude
+                _this.Weather(res.latitude, res.longitude)
+              },
+            })
+          } else {
+            wx.showToast({
+              title: '检测到您没获得位置权限，请先开启哦',
+              icon: "none",
+              duration: 3000
+            })
+            setTimeout(function () {
+              //打开设置
+              wx.openSetting({
+                success: (res) => {
+                  console.log(res)
+                  isOpenSetting = res.authSetting["scope.userLocation"]
+                  _this.getLocationAction()
+                }
+              })
+            }, 3000)
+          }
+        }
+      })
   },
   onShareAppMessage: function () {
     return {
@@ -112,6 +149,7 @@ Page({
       path: '/page/'
     }
   }
+  
   //   if (app.globalData.userInfo) {
   //     this.setData({
   //       userInfo: app.globalData.userInfo,
