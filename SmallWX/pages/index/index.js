@@ -19,79 +19,43 @@ Page({
   },
   //天气接口
   Weather: function(lat, longi) {
-    var _this = this
-    // wx.request({
-    //   // url: "https://api.seniverse.com/v3/weather/now.json",
-    //   // data: {
-    //   //   key: "ff8v8ynamw3oq3ax",
-    //   //   location: location ? "" :"shanghai",
-    //   //   language: "zh-Hans",
-    //   //   unit: "c"
-    //   // },
-    //   //和风
-    //   url: "https://free-api.heweather.com/s6/weather/now",
-    //   data: {
-    //     key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
-    //     location: location ? longi + "," + lat : "shanghai",
-    //     lang: "en",
-    //     unit: "m"
-    //   },
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   method: "GET",
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   },
-    //   fail: function (err) {
-    //     console.log(err)
-    //   },
-    //   complete: function () {
-    //     // 数据成功后，停止下拉刷新
-    //     wx.stopPullDownRefresh();
-    //     wx.hideLoading()
-    //   }
-    // })
-    var url = "https://free-api.heweather.com/s6/weather/now";
+    var _this = this;
+    //数据集合
+    var url = "https://free-api.heweather.com/s6/weather";
     var data = {
       key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
       location: location ? longi + "," + lat : "shanghai",
       lang: "en",
       unit: "m"
     };
-    network_util._get(url, data, function(res){
+    network_util._get(url, data, function (res) {
       console.log(res.data)
-    },function(res){
+    }, function (res) {
 
-    },function(){
+    }, function () {
       // 数据成功后，停止下拉刷新
       wx.stopPullDownRefresh();
       wx.hideLoading()
-    })
+    });
   },
   //地理反编码
   genCodeLocation: function(lat, longi) {
     var _this = this;
-    wx.request({
-      url: "https://restapi.amap.com/v3/geocode/regeo",
-      data: {
-        key: "05e62c98ebc533cb8811ae71ca817033",
-        location: longi + "," + lat
-      },
-      metod: "GET",
-      success: function(res) {
-        console.log(res.data)
-        _this.setData({
-          location: res.data.regeocode.addressComponent.district + res.data.regeocode.addressComponent.township
-        })
-      },
-      fail: function (err) {
-        // console.log(err)
-      },
-      complete: function () {
-        location = "youzhi"
-        _this.Weather(lat, longi)
-      }
+    var url = "https://restapi.amap.com/v3/geocode/regeo";
+    var data = {
+      key: "05e62c98ebc533cb8811ae71ca817033",
+      location: longi + "," + lat
+    }
+    network_util._get(url, data, function (res) {
+      console.log(res.data)
+      _this.setData({
+        location: res.data.regeocode.addressComponent.district + res.data.regeocode.addressComponent.township
+      })
+    }, function (res) {
+
+    }, function () {
+      location = "youzhi"
+      _this.Weather(lat, longi)
     })
   },
   onLoad: function () {
