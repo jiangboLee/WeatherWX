@@ -14,7 +14,7 @@
     <button size="mini" bindtap="tapMove">click me to scroll</button>
   </view>
 </view> -->
-<view class="section section_gap">
+<!-- <view class="section section_gap">
   <view class="section__title">horizontal scroll</view>
    <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
     <view id="green" class="scroll-view-item_H bc_green"></view>
@@ -22,10 +22,13 @@
     <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
     <view id="blue" class="scroll-view-item_H bc_blue"></view>
   </scroll-view> 
-  <!-- <scroll-view scroll-x="true" style="white-space: nowrap; display:flex ">
-    <view style="background:red;width: 200px; height: 200px; display:inline-block "></view>
-    <view style="background:green;width: 200px; height: 200px;display:inline-block "></view>
-    <view style="background:blue;width: 200px; height: 200px;display:inline-block "></view>
-    <view style="background:yellow;width: 200px; height: 200px;display:inline-block "></view>
-  </scroll-view> -->
-</view> 
+</view> -->
+<!-- <view class='backgroundView'>
+  <scroll-view class='bgScrollView' scroll-y="true" style='height: 100%' bindscrolltoupper="refresh">
+    <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
+     <icon type='waiting' size='45'><text>更新中...</text></icon>
+     <view wx:else style='display:none'><text></text></view>
+    </view>
+    <view class='content'></view>
+  </scroll-view>
+</view> -->

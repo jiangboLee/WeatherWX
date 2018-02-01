@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<!-- <view class="container"> -->
   <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -7,8 +7,22 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view> -->
-  <view id='location' bindtap='chooseLocation'>{{location}}</view>
+  <!-- <view id='location' bindtap='chooseLocation'>{{location}}</view>
   <view class="usermotto" bindtap='gotest'>
     <text class="user-motto">{{motto}}</text>
   </view>
+</view> -->
+<view class='backgroundView'>
+  <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
+     <icon type='waiting' size='45'><text>更新中...</text></icon></view>
+  <view wx:else style="display:none"><text></text></view>
+  <!-- <scroll-view class='bgScrollView' scroll-y="true" style='height: 100%' bindscrolltoupper='refresh'     enable-back-to-top="true"> -->
+    <view class='content'>
+      <view id='location' bindtap='chooseLocation'>{{location}}</view>
+      <view style='height: 1000px;width: 100%;background-color: red'>{{hehe}}</view>
+      <view class="usermotto" bindtap='gotest'>
+        <text class="user-motto">{{motto}}</text>
+      </view>
+    </view>
+  <!-- </scroll-view> -->
 </view>
