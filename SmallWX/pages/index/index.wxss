@@ -1,5 +1,5 @@
 /**index.wxss**/
-.userinfo {
+/* .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,8 +18,37 @@
 
 .usermotto {
   margin-top: 200px;
-}
+} */
 
 #location {
-  color: red
+  color: red;
+  padding-top: 20rpx;
+  font-size: 38rpx;
+  text-align: center;
+  /* position: absolute; */
+  /* z-index: 2; */
+  /* left: 50%; */
+}
+.nowTemp {
+  color: blue;
+  text-align: center;
+  font-size: 160rpx;
+}
+.nowWind {
+  color: white;
+  text-align: center;
+}
+.air_now {
+  color: white;
+  text-align: center;
+}
+.hourly {
+  height: 350rpx;
+  white-space: nowrap; 
+  display: flex;
+}
+.oneHourly {
+  height: 100%;
+  width: 200px;
+  display: inline-block;
 }

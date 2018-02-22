@@ -10,7 +10,10 @@ Page({
     motto: 'nihao',
     location: '上海市',
     hasRefresh: false,
-    hehe: "aaa",
+    nowTemperature: '0 ℃',
+    nowWind: '晴/东北风  微风',
+    nowAir: '50  优',
+    hourlyArr: [],
   },
   gotest: function() {
     wx.navigateTo({
@@ -22,20 +25,40 @@ Page({
     var _this = this;
     //数据集合
     var url = "https://free-api.heweather.com/s6/weather";
+    var airUrl = "https://free-api.heweather.com/s6/air";
     var data = {
       key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
       location: location ? longi + "," + lat : "shanghai",
-      lang: "en",
+      lang: "zh",
       unit: "m"
     };
     network_util._get(url, data, function (res) {
-      console.log(res.data)
+      console.log(res.data.HeWeather6[0])
+      var now = res.data.HeWeather6[0].now;
+      var hourly = res.data.HeWeather6[0].hourly;
+      _this.setData({
+        nowTemperature: now.tmp + " ℃", 
+        nowWind: now.cond_txt + "/" + now.wind_dir + "   " + now.wind_sc,
+        hourlyArr: hourly,
+      })
     }, function (res) {
 
     }, function () {
       // 数据成功后，停止下拉刷新
       wx.stopPullDownRefresh();
       wx.hideLoading()
+    });
+    //空气质量请求
+    network_util._get(airUrl, data, function(res) {
+      console.log(res.data)
+      var nowAirCity = res.data.HeWeather6[0].air_now_city;
+      _this.setData({
+        nowAir: nowAirCity.aqi + "  " + nowAirCity.qlty,
+      })
+    }, function(res) {
+
+    }, function() {
+
     });
   },
   //地理反编码
