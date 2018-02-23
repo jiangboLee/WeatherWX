@@ -4,7 +4,9 @@
   <view wx:else style="display:none"><text></text></view>
   <!-- <scroll-view class='bgScrollView' scroll-y="true" style='height: 100%' bindscrolltoupper='refresh'     enable-back-to-top="true"> -->
     <view class='content'>
-      <view class='topView' style='background:url(../../img/1.png); width:100%;height: 800rpx;'>
+    <!-- iamge标签可以加载本地图片，但背景图片用网络图片或者base64的才能在手机端显示。 -->
+      <view class='topView'>
+        <image src='../img/1.png' class='topImg' mode='aspectFill'></image>
         <view id='location' bindtap='chooseLocation' >{{location}}</view>
         <view class='nowTemp'>{{nowTemperature}}</view>
         <view class='nowWind'>{{nowWind}}</view>
@@ -13,7 +15,14 @@
       <scroll-view class='hourly' scroll-x="true">
         <block wx:for="{{hourlyArr}}" wx:key="unique" style="display: block;">
           <view class='oneHourly'>
-            <view>{{item.time}}</view>
+            <wxs module="m1">
+              var getLast = function(str) {
+                return str.split(" ")[1];
+              }
+              module.exports.getLast = getLast;
+            </wxs>
+            <view>{{m1.getLast(item.time)}}</view>
+            <view>{{item.time.split(" ")[0]}}</view>
             <view >{{item.tmp}} ℃</view>
             <view >{{item.wind_sc}}</view>
           </view>
