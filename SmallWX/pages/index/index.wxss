@@ -69,9 +69,31 @@
   height: 350rpx;
   white-space: nowrap; 
   display: flex;
+  background-color: bisque;
 }
 .oneHourly {
   height: 100%;
-  width: 200px;
+  width: 80px;
   display: inline-block;
+}
+.daily {
+  display: flex;
+  height: 80rpx;
+  background-color: yellowgreen;
+}
+.dailyDate {
+   text-align: left; 
+   width: 30%;
+}
+.dailyImg {
+  width: 64rpx;
+  height: 80%;
+}
+.dailyCond {
+   text-align: center; 
+   width: 40%;
+}
+.dailyTmp {
+   text-align: right; 
+   width: 40%;
 }

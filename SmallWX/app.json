@@ -7,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "及时天气",
+    "navigationBarTitleText": "即时天气",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   }

@@ -1,3 +1,17 @@
+<wxs module="m1">
+  var getLast = function(str) {
+    return str.split(" ")[1];
+  }
+  var getDailyDate = function(index, str) {
+    if (index == 0) {
+      return "今天";
+    } else {
+      return str.split("-")[1] + "/" + str.split("-")[2];
+    }
+  }
+  module.exports.getLast = getLast;
+  module.exports.getDailyDate = getDailyDate;
+</wxs>
 <view class='backgroundView'>
   <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
      <icon type='waiting' size='45'><text>更新中...</text></icon></view>
@@ -15,22 +29,22 @@
       <scroll-view class='hourly' scroll-x="true">
         <block wx:for="{{hourlyArr}}" wx:key="unique" style="display: block;">
           <view class='oneHourly'>
-            <wxs module="m1">
-              var getLast = function(str) {
-                return str.split(" ")[1];
-              }
-              module.exports.getLast = getLast;
-            </wxs>
-            <view>{{m1.getLast(item.time)}}</view>
-            <view>{{item.time.split(" ")[0]}}</view>
+            <view>{{m1.getLast(item.time)}}</view> 
             <view >{{item.tmp}} ℃</view>
             <view >{{item.wind_sc}}</view>
           </view>
         </block>
       </scroll-view>
-      <view class="usermotto" bindtap='gotest'>
-        <text class="user-motto">{{motto}}</text>
-      </view>
+      <block wx:for="{{dailyForecast}}" wx:key="unique" style="display: block;">
+        <view class='daily' style="flex-direction:row;">
+          <!-- <view wx:if="{{index===0}}">今天</view>
+          <view wx:else>{{m1.getDailyDate(item.date)}}</view> -->
+          <view class='dailyDate'>{{m1.getDailyDate(index,item.date)}}</view> 
+          <!-- <image class='dailyImg' src='../img/{{item.cond_code_d}}.png'></image> -->
+          <view class='dailyCond'>{{item.cond_txt_d}}</view>
+          <view class='dailyTmp'>{{item.tmp_min}}℃ - {{item.tmp_max}}℃</view>
+        </view>
+      </block>
     </view>
   <!-- </scroll-view> -->
 </view>

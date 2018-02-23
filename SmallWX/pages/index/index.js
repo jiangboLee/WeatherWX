@@ -7,13 +7,13 @@ var location;
 var isOpenSetting = false;
 Page({
   data: {
-    motto: 'nihao',
     location: '上海市',
     hasRefresh: false,
     nowTemperature: '0 ℃',
     nowWind: '晴/东北风  微风',
     nowAir: '50  优',
     hourlyArr: [],
+    dailyForecast: [],
   },
   gotest: function() {
     wx.navigateTo({
@@ -28,7 +28,7 @@ Page({
     var airUrl = "https://free-api.heweather.com/s6/air";
     var data = {
       key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
-      location: location ? longi + "," + lat : "shanghai",
+      location: longi ? longi + "," + lat : "shanghai",
       lang: "zh",
       unit: "m"
     };
@@ -36,10 +36,12 @@ Page({
       console.log(res.data.HeWeather6[0])
       var now = res.data.HeWeather6[0].now;
       var hourly = res.data.HeWeather6[0].hourly;
+      var daily = res.data.HeWeather6[0].daily_forecast;
       _this.setData({
         nowTemperature: now.tmp + " ℃", 
         nowWind: now.cond_txt + "/" + now.wind_dir + "   " + now.wind_sc,
         hourlyArr: hourly,
+        dailyForecast: daily,
       })
     }, function (res) {
 
@@ -150,7 +152,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '天气',
+      title: '及时天气',
       path: '/page/'
     }
   },
