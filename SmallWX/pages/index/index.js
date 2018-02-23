@@ -14,6 +14,7 @@ Page({
     nowAir: '50  优',
     hourlyArr: [],
     dailyForecast: [],
+    lifeStyle: [],
   },
   gotest: function() {
     wx.navigateTo({
@@ -37,11 +38,13 @@ Page({
       var now = res.data.HeWeather6[0].now;
       var hourly = res.data.HeWeather6[0].hourly;
       var daily = res.data.HeWeather6[0].daily_forecast;
+      var lift = res.data.HeWeather6[0].lifestyle;
       _this.setData({
         nowTemperature: now.tmp + " ℃", 
         nowWind: now.cond_txt + "/" + now.wind_dir + "   " + now.wind_sc,
         hourlyArr: hourly,
         dailyForecast: daily,
+        lifeStyle: [lift[2], lift[1], lift[6], lift[5]],
       })
     }, function (res) {
 

@@ -19,6 +19,9 @@
 .usermotto {
   margin-top: 200px;
 } */
+.backgroundView {
+  background-color: #F8F8F8;
+}
 .topView {
   background-color: rebeccapurple;
   width: 100%; 
@@ -68,32 +71,113 @@
 .hourly {
   height: 350rpx;
   white-space: nowrap; 
-  display: flex;
-  background-color: bisque;
+  display: flex; 
+  background-color: white;
+  /* margin-top: 20rpx; */
 }
 .oneHourly {
   height: 100%;
-  width: 80px;
-  display: inline-block;
+  width: 20%;
+  display: inline-block; 
+}
+.oneHourlyFlex {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.hourlyDate {
+  text-align: center;
+  color: #4B4B4B;
+  font-size: 35rpx;
+}
+.hourlyImg {
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+}
+.hourlyTmp {
+  text-align: center;
+  color: #4B4B4B;
+  font-size: 35rpx;
+}
+.hourlyWind {
+  text-align: center;
+  color: #4B4B4B;
+  font-size: 35rpx;
+}
+.dailyForecast {
+  margin-top: 20rpx;  
 }
 .daily {
   display: flex;
   height: 80rpx;
-  background-color: yellowgreen;
+  background-color: white;
+  text-align: center;
 }
 .dailyDate {
-   text-align: left; 
-   width: 30%;
+   text-align: center; 
+   width: 25%;
+   color: #4B4B4B;
+   font-size: 35rpx;
 }
 .dailyImg {
+  margin-left: 100rpx;
+  margin-right: 40rpx;
   width: 64rpx;
   height: 80%;
 }
 .dailyCond {
-   text-align: center; 
+   text-align: left; 
    width: 40%;
+   color: #4B4B4B;
+   font-size: 35rpx;
 }
 .dailyTmp {
-   text-align: right; 
+   text-align: center; 
    width: 40%;
+   font-size: 35rpx;
+}
+.lifeStyle {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: space-between;
+}
+.life {
+  background-color: white;
+  width: 24.5%;
+  height: 0;
+  padding-bottom: 24.5%;
+  /* align-items: center; 
+  justify-content: center; */
+  /* display: flex;
+  flex-direction: column;
+   
+  /* justify-content: space-around; */ 
+}
+.lifeImg {
+  width: 100%;
+  height: 50rpx; 
+  margin-top: 30rpx; 
+  margin-bottom: 20rpx; 
+}
+.lifeText {
+  width: 100%;
+  text-align: center; 
+  font-size: 30rpx;
+  color: #4B4B4B;
+}
+.botton {
+  height: 100rpx;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rpx;
+  display: flex;
 }

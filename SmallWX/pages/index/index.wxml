@@ -29,22 +29,47 @@
       <scroll-view class='hourly' scroll-x="true">
         <block wx:for="{{hourlyArr}}" wx:key="unique" style="display: block;">
           <view class='oneHourly'>
-            <view>{{m1.getLast(item.time)}}</view> 
-            <view >{{item.tmp}} ℃</view>
-            <view >{{item.wind_sc}}</view>
+            <view class='oneHourlyFlex'>
+              <view class='hourlyDate'>{{m1.getLast(item.time)}}</view> 
+              <image class='hourlyImg' src='../img/{{item.cond_code}}.png' mode='aspectFit'></image>
+              <view class='hourlyTmp'>{{item.tmp}} ℃</view>
+              <view class='hourlyWind'>{{item.wind_sc}}</view>
+            </view>
           </view>
         </block>
       </scroll-view>
-      <block wx:for="{{dailyForecast}}" wx:key="unique" style="display: block;">
-        <view class='daily' style="flex-direction:row;">
+      <view class='dailyForecast'>
+        <block wx:for="{{dailyForecast}}" wx:key="unique" style="display: block;">
+          <view class='daily' style="flex-direction:row;">
           <!-- <view wx:if="{{index===0}}">今天</view>
           <view wx:else>{{m1.getDailyDate(item.date)}}</view> -->
-          <view class='dailyDate'>{{m1.getDailyDate(index,item.date)}}</view> 
-          <!-- <image class='dailyImg' src='../img/{{item.cond_code_d}}.png'></image> -->
-          <view class='dailyCond'>{{item.cond_txt_d}}</view>
-          <view class='dailyTmp'>{{item.tmp_min}}℃ - {{item.tmp_max}}℃</view>
+            <view class='dailyDate'>{{m1.getDailyDate(index,item.date)}}</view> 
+            <image class='dailyImg' src='../img/{{item.cond_code_d}}.png' mode='aspectFit'></image> 
+            <view class='dailyCond'>{{item.cond_txt_d}}</view>
+            <view class='dailyTmp'>{{item.tmp_min}}℃ - {{item.tmp_max}}℃</view>
+          </view>
+        </block>
+      </view>
+      <!--穿衣提示 -->
+      <view class='lifeStyle'>
+        <view class='life'>
+          <image class='lifeImg' src='../img/cold.png' mode='aspectFit'></image>
+          <view class='lifeText'>{{lifeStyle[0].brf}}感冒</view>
         </view>
-      </block>
+        <view class='life'>
+          <image class='lifeImg' src='../img/cloth.png' mode='aspectFit'></image>
+          <view class='lifeText'>{{lifeStyle[1].brf}}</view>
+        </view>
+        <view class='life'>
+          <image class='lifeImg' src='../img/car.png' mode='aspectFit'></image>
+          <view class='lifeText'>{{lifeStyle[2].brf}}洗车</view>
+        </view>
+        <view class='life'>
+          <image class='lifeImg' src='../img/umbrella.png' mode='aspectFit'></image>
+          <view class='lifeText'>紫外线{{lifeStyle[3].brf}}</view>
+        </view>
+      </view>
+      <view class='botton'>实时天气数据来自气象局</view>
     </view>
   <!-- </scroll-view> -->
 </view>
