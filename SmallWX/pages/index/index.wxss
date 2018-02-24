@@ -23,7 +23,7 @@
   background-color: #F8F8F8;
 }
 .topView {
-  background-color: rebeccapurple;
+  background-color: #F8F8F8;
   width: 100%; 
   position: relative;
   text-align:center;
@@ -31,7 +31,7 @@
 }
 .topImg {
   width: 100%;  
-  height: 600rpx;
+  height: 100%;
 }
 .location {
   color: red;

@@ -39,10 +39,30 @@
       return "north";
     }
   }
+  var nowBackImage = function(code, temp) {
+    if (code == 100 || code == 101 || code == 102 || code == 103 || code == 104) {
+      if (temp > 35) {
+        return "sun2";
+      } else {
+        return "sun";
+      }
+    } else if (code >= 105 && code <= 213) {
+      return "cloud";
+    } else if (code >= 300 && code <= 313) {
+      return "rain";
+    } else if (code >= 400 && code <= 407) {
+      return "snow";
+    } else if (code >= 500 && code <= 508) {
+      return "smog";
+    } else {
+      return "sun";
+    }
+  }
   module.exports.getLast = getLast;
   module.exports.getDailyDate = getDailyDate;
   module.exports.windTrans = windTrans;
   module.exports.windDirection = windDirection;
+  module.exports.nowBackImage = nowBackImage;
 </wxs>
 <view class='backgroundView'>
   <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
@@ -52,7 +72,7 @@
     <view class='content'>
     <!-- iamge标签可以加载本地图片，但背景图片用网络图片或者base64的才能在手机端显示。 -->
       <view class='topView'>
-        <image src='../img/19.png' class='topImg' mode='aspectFit'></image>
+        <image src='../img/{{m1.nowBackImage(nowBackGround[0], nowBackGround[1])}}.png' class='topImg' mode='aspectFill'></image>
         <view class='location' bindtap='chooseLocation' >
           <view>
             <image class='locationImg' src='../img/location.png' mode='aspectFit'></image>

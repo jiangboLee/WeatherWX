@@ -5,10 +5,13 @@ var network_util = require('../../utils/network.js');
 const app = getApp()
 var location;
 var isOpenSetting = false;
+var longi;
+var lat;
 Page({
   data: {
     location: '上海市',
     hasRefresh: false,
+    nowBackGround: [],
     nowTemperature: '0 ℃',
     nowWind: '晴/东北风  微风',
     nowAir: '50  优',
@@ -27,9 +30,10 @@ Page({
     //数据集合
     var url = "https://free-api.heweather.com/s6/weather";
     var airUrl = "https://free-api.heweather.com/s6/air";
+    console.log(location);
     var data = {
       key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
-      location: longi ? longi + "," + lat : "shanghai",
+      location: location ? longi + "," + lat : "shanghai",
       lang: "zh",
       unit: "m"
     };
@@ -40,6 +44,7 @@ Page({
       var daily = res.data.HeWeather6[0].daily_forecast;
       var lift = res.data.HeWeather6[0].lifestyle;
       _this.setData({
+        nowBackGround: [now.cond_code, now.tmp],
         nowTemperature: now.tmp + "℃", 
         nowWind: now.cond_txt + "/" + now.wind_dir + "   " + now.wind_sc,
         hourlyArr: hourly,
@@ -90,19 +95,17 @@ Page({
     this.getLocationAction()
   },
   getLocationAction: function() {
-    var location;
+    // var location;
     var _this = this;
     wx.getLocation({
       success: function (res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        location = latitude + ":" + longitude
-        console.log(res)
+        lat = res.latitude
+        longi = res.longitude
         wx.showLoading({
           title: '加载中',
           mask: true
         })
-        _this.genCodeLocation(latitude, longitude)
+        _this.genCodeLocation(lat, longi)
       },
       fail: function () {
         _this.Weather("", "");
@@ -127,8 +130,10 @@ Page({
               success: function (res) {
                 console.log(res)
                 _this.setData({
-                  location: res.address
+                  location: res.address,
                 })
+                longi=res.longitude
+                lat=res.latitude
                 location = res.latitude + ":" + res.longitude
                 _this.Weather(res.latitude, res.longitude)
               },
@@ -167,6 +172,6 @@ Page({
     
   },
   onPullDownRefresh: function() {
-    this.Weather();
+    this.Weather(longi, lat);
   }
 })
