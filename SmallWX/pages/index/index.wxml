@@ -1,6 +1,10 @@
 <wxs module="m1">
-  var getLast = function(str) {
-    return str.split(" ")[1];
+  var getLast = function(index, str) {
+    if (index == 0) {
+      return "现在";
+    } else {
+      return str.split(" ")[1];
+    }
   }
   var getDailyDate = function(index, str) {
     if (index == 0) {
@@ -9,8 +13,16 @@
       return str.split("-")[1] + "/" + str.split("-")[2];
     }
   }
+  var windTrans = function(str) {
+    if (str.match("-")) {
+      return str + "级";
+    } else {
+      return str;
+    }
+  }
   module.exports.getLast = getLast;
   module.exports.getDailyDate = getDailyDate;
+  module.exports.windTrans = windTrans;
 </wxs>
 <view class='backgroundView'>
   <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
@@ -20,8 +32,13 @@
     <view class='content'>
     <!-- iamge标签可以加载本地图片，但背景图片用网络图片或者base64的才能在手机端显示。 -->
       <view class='topView'>
-        <image src='../img/1.png' class='topImg' mode='aspectFill'></image>
-        <view id='location' bindtap='chooseLocation' >{{location}}</view>
+        <image src='../img/19.png' class='topImg' mode='aspectFit'></image>
+        <view class='location' bindtap='chooseLocation' >
+          <view>
+            <image class='locationImg' src='../img/100.png' mode='aspectFit'></image>
+            <text >{{location}}</text>
+          </view>
+        </view>
         <view class='nowTemp'>{{nowTemperature}}</view>
         <view class='nowWind'>{{nowWind}}</view>
         <view class='air_now'>{{nowAir}}</view>
@@ -30,10 +47,10 @@
         <block wx:for="{{hourlyArr}}" wx:key="unique" style="display: block;">
           <view class='oneHourly'>
             <view class='oneHourlyFlex'>
-              <view class='hourlyDate'>{{m1.getLast(item.time)}}</view> 
+              <view class='hourlyDate'>{{m1.getLast(index, item.time)}}</view> 
               <image class='hourlyImg' src='../img/{{item.cond_code}}.png' mode='aspectFit'></image>
-              <view class='hourlyTmp'>{{item.tmp}} ℃</view>
-              <view class='hourlyWind'>{{item.wind_sc}}</view>
+              <view class='hourlyTmp'>{{item.tmp}}°</view>
+              <view class='hourlyWind'>{{m1.windTrans(item.wind_sc)}}</view>
             </view>
           </view>
         </block>
@@ -46,7 +63,7 @@
             <view class='dailyDate'>{{m1.getDailyDate(index,item.date)}}</view> 
             <image class='dailyImg' src='../img/{{item.cond_code_d}}.png' mode='aspectFit'></image> 
             <view class='dailyCond'>{{item.cond_txt_d}}</view>
-            <view class='dailyTmp'>{{item.tmp_min}}℃ - {{item.tmp_max}}℃</view>
+            <view class='dailyTmp'>{{item.tmp_min}}°~{{item.tmp_max}}°</view>
           </view>
         </block>
       </view>

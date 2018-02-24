@@ -27,21 +27,49 @@
   width: 100%; 
   position: relative;
   text-align:center;
+  height: 810rpx;
 }
 .topImg {
   width: 100%;  
   height: 600rpx;
 }
-#location {
+.location {
   color: red;
-  padding-top: 20rpx;
-  font-size: 38rpx;
+  padding: 10rpx;
+  font-size: 42rpx;
   text-align: center;
   position: absolute; 
    /* z-index: 2;  */
   top: 1%;  
   left: 0;
   right: 0;
+  height: 56rpx;
+}
+.location view {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  white-space: nowrap; 
+}
+.location view text {
+  color: white;
+  font-size: 28rpx;
+  padding-right: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 60rpx;
+  white-space: nowrap;
+  border-radius: 30rpx;
+  background-color: rgba(215, 215, 215, 0.1);
+}
+.locationImg {
+  width: 28rpx;
+  height: 28rpx;
+  padding: 20rpx;
+  margin-right: -70rpx;
+  position: absolute;
+  z-index: 10;
 }
 .nowTemp {
   color: blue;
@@ -73,12 +101,14 @@
   white-space: nowrap; 
   display: flex; 
   background-color: white;
-  /* margin-top: 20rpx; */
 }
 .oneHourly {
   height: 100%;
   width: 20%;
-  display: inline-block; 
+  display: inline-block;  
+  /* background-color: blue; */
+  /* letter-spacing:4px;   */
+  font-size:35rpx;  
 }
 .oneHourlyFlex {
   width: 100%;
@@ -121,10 +151,11 @@
   text-align: center;
 }
 .dailyDate {
-   text-align: center; 
+   text-align: left; 
    width: 25%;
    color: #4B4B4B;
    font-size: 35rpx;
+   margin-left: 5%;
 }
 .dailyImg {
   margin-left: 100rpx;
