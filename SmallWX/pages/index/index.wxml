@@ -20,9 +20,29 @@
       return str;
     }
   }
+  var windDirection = function(str) {
+    if (str.indexOf("东北") != -1) {
+      return "eastnorth";
+    } else if (str.indexOf("东南") != -1) {
+      return "eastsouth";
+    } else if (str.indexOf("西南") != -1) {
+      return "westsouth";
+    } else if (str.indexOf("西北") != -1) {
+      return "westnorth";
+    } else if (str.indexOf("东") != -1) {
+      return "east";
+    } else if (str.indexOf("南") != -1) {
+      return "south";
+    } else if (str.indexOf("西") != -1) {
+      return "west";
+    } else if (str.indexOf("北") != -1) {
+      return "north";
+    }
+  }
   module.exports.getLast = getLast;
   module.exports.getDailyDate = getDailyDate;
   module.exports.windTrans = windTrans;
+  module.exports.windDirection = windDirection;
 </wxs>
 <view class='backgroundView'>
   <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
@@ -35,7 +55,7 @@
         <image src='../img/19.png' class='topImg' mode='aspectFit'></image>
         <view class='location' bindtap='chooseLocation' >
           <view>
-            <image class='locationImg' src='../img/100.png' mode='aspectFit'></image>
+            <image class='locationImg' src='../img/location.png' mode='aspectFit'></image>
             <text >{{location}}</text>
           </view>
         </view>
@@ -50,7 +70,11 @@
               <view class='hourlyDate'>{{m1.getLast(index, item.time)}}</view> 
               <image class='hourlyImg' src='../img/{{item.cond_code}}.png' mode='aspectFit'></image>
               <view class='hourlyTmp'>{{item.tmp}}°</view>
-              <view class='hourlyWind'>{{m1.windTrans(item.wind_sc)}}</view>
+              <view class='hourlyWind'>
+                <image src='../img/{{m1.windDirection(item.wind_dir)}}.png' mode='aspectFit'></image>
+                <text>{{m1.windTrans(item.wind_sc)}}</text>
+              
+              </view>
             </view>
           </view>
         </block>

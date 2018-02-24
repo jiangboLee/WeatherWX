@@ -27,7 +27,7 @@
   width: 100%; 
   position: relative;
   text-align:center;
-  height: 810rpx;
+  height: 910rpx;
 }
 .topImg {
   width: 100%;  
@@ -37,6 +37,7 @@
   color: red;
   padding: 10rpx;
   font-size: 42rpx;
+  font-family: "PingFangSC-Medium";
   text-align: center;
   position: absolute; 
    /* z-index: 2;  */
@@ -54,7 +55,7 @@
 }
 .location view text {
   color: white;
-  font-size: 28rpx;
+  font-size: 30rpx;
   padding-right: 20rpx;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
@@ -72,43 +73,46 @@
   z-index: 10;
 }
 .nowTemp {
-  color: blue;
   text-align: center;
-  font-size: 160rpx;
+  font-size: 180rpx;
+  color: #fafbfb;
+  font-family: "SFUIDisplay-Regular";
   position: absolute; 
-  top: 10%;
+  top: 18%;
   left: 0;
   right: 0;
 }
 .nowWind {
-  color: lightblue;
   text-align: center;
+  color: white;
+  font-size: 30rpx;
   position: absolute; 
-  top: 50%;
+  top: 48%;
   left: 0;
   right: 0;
 }
 .air_now {
-  color: lightblue;
   text-align: center;
+  font-size: 30rpx;
+  color: white;
   position: absolute; 
-  top: 70%;
+  top: 54%;
   left: 0;
   right: 0;
 }
 .hourly {
-  height: 350rpx;
+  height: 308rpx;
   white-space: nowrap; 
   display: flex; 
   background-color: white;
 }
 .oneHourly {
   height: 100%;
-  width: 20%;
+  width: 150rpx;
   display: inline-block;  
   /* background-color: blue; */
   /* letter-spacing:4px;   */
-  font-size:35rpx;  
+  font-size:30rpx;  
 }
 .oneHourlyFlex {
   width: 100%;
@@ -123,7 +127,8 @@
 .hourlyDate {
   text-align: center;
   color: #4B4B4B;
-  font-size: 35rpx;
+  font-size: 30rpx;
+  font-family: "SFUIDisplay-Regular";
 }
 .hourlyImg {
   width: 64rpx;
@@ -133,15 +138,27 @@
 .hourlyTmp {
   text-align: center;
   color: #4B4B4B;
-  font-size: 35rpx;
+  font-size: 30rpx;
+  font-family: "PingFangSC-Semibold";
 }
 .hourlyWind {
   text-align: center;
   color: #4B4B4B;
-  font-size: 35rpx;
+  font-size: 28rpx;
+  font-family: "PingFangSC-Medium";
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.hourlyWind image {
+  width: 16rpx;
+  height: 28rpx;
+  margin-right: 5rpx;
 }
 .dailyForecast {
-  margin-top: 20rpx;  
+  margin-top: 40rpx; 
+  font-family: "PingFangSC-Medium"; 
 }
 .daily {
   display: flex;
@@ -154,7 +171,7 @@
    text-align: left; 
    width: 25%;
    color: #4B4B4B;
-   font-size: 35rpx;
+   font-size: 30rpx;
    margin-left: 5%;
 }
 .dailyImg {
@@ -167,19 +184,21 @@
    text-align: left; 
    width: 40%;
    color: #4B4B4B;
-   font-size: 35rpx;
+   font-size: 30rpx;
 }
 .dailyTmp {
    text-align: center; 
    width: 40%;
-   font-size: 35rpx;
+   font-size: 30rpx;
+   font-family: "PingFangSC-Semibold";
 }
 .lifeStyle {
-  margin-top: 20rpx;
+  margin-top: 40rpx;
   display: flex;
   flex-direction: row;
   align-items: center; 
   justify-content: space-between;
+  font-family: "PingFangSC-Medium";
 }
 .life {
   background-color: white;
@@ -202,7 +221,7 @@
 .lifeText {
   width: 100%;
   text-align: center; 
-  font-size: 30rpx;
+  font-size: 25rpx;
   color: #4B4B4B;
 }
 .botton {

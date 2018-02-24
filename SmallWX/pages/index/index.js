@@ -40,7 +40,7 @@ Page({
       var daily = res.data.HeWeather6[0].daily_forecast;
       var lift = res.data.HeWeather6[0].lifestyle;
       _this.setData({
-        nowTemperature: now.tmp + " ℃", 
+        nowTemperature: now.tmp + "℃", 
         nowWind: now.cond_txt + "/" + now.wind_dir + "   " + now.wind_sc,
         hourlyArr: hourly,
         dailyForecast: daily,
