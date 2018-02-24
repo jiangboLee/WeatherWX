@@ -30,7 +30,6 @@ Page({
     //数据集合
     var url = "https://free-api.heweather.com/s6/weather";
     var airUrl = "https://free-api.heweather.com/s6/air";
-    console.log(location);
     var data = {
       key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
       location: location ? longi + "," + lat : "shanghai",
@@ -38,7 +37,7 @@ Page({
       unit: "m"
     };
     network_util._get(url, data, function (res) {
-      console.log(res.data.HeWeather6[0])
+      // console.log(res.data.HeWeather6[0])
       var now = res.data.HeWeather6[0].now;
       var hourly = res.data.HeWeather6[0].hourly;
       var daily = res.data.HeWeather6[0].daily_forecast;
@@ -60,7 +59,7 @@ Page({
     });
     //空气质量请求
     network_util._get(airUrl, data, function(res) {
-      console.log(res.data)
+      // console.log(res.data)
       var nowAirCity = res.data.HeWeather6[0].air_now_city;
       _this.setData({
         nowAir: nowAirCity.aqi + "  " + nowAirCity.qlty,
@@ -80,7 +79,7 @@ Page({
       location: longi + "," + lat
     }
     network_util._get(url, data, function (res) {
-      console.log(res.data)
+      // console.log(res.data)
       _this.setData({
         location: res.data.regeocode.addressComponent.district + res.data.regeocode.addressComponent.township
       })
@@ -122,13 +121,13 @@ Page({
       var _this = this;
       wx.getSetting({
         success: (res) => {
-          console.log(res)
+          // console.log(res)
           isopenLoction = res.authSetting["scope.userLocation"]
-          console.log(isopenLoction)
+          // console.log(isopenLoction)
           if (isopenLoction) {
             wx.chooseLocation({
               success: function (res) {
-                console.log(res)
+                // console.log(res)
                 _this.setData({
                   location: res.address,
                 })
@@ -148,7 +147,7 @@ Page({
               //打开设置
               wx.openSetting({
                 success: (res) => {
-                  console.log(res)
+                  // console.log(res)
                   isOpenSetting = res.authSetting["scope.userLocation"]
                   _this.getLocationAction()
                 }
