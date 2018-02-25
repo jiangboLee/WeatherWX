@@ -159,8 +159,8 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '及时天气',
-      path: '/page/'
+      title: '即时天气',
+      path: '/pages/index/index',
     }
   },
   refresh: function() {
