@@ -1,6 +1,9 @@
 # WeatherWX
 微信小程序
 由于公司打算要搞一个小程序app,所以趁闲先自己搞一个试试手，小程序搜索----即时天气(已上线)。
+
+![小程序二维码.jpg](http://upload-images.jianshu.io/upload_images/2868618-0f2cbfd439e2b7b8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![应用截图1.png](http://upload-images.jianshu.io/upload_images/2868618-965d1dd59f0e64a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ![应用截图2.png](http://upload-images.jianshu.io/upload_images/2868618-1fe1b9f306160a8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ### 浅谈项目
