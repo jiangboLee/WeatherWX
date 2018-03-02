@@ -1,24 +1,3 @@
-/**index.wxss**/
-/* .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
-} */
 .backgroundView {
   background-color: #F8F8F8;
 }
@@ -85,7 +64,7 @@
 .nowWind {
   text-align: center;
   color: white;
-  font-size: 30rpx;
+  font-size: 40rpx;
   position: absolute; 
   top: 48%;
   left: 0;
@@ -93,7 +72,7 @@
 }
 .air_now {
   text-align: center;
-  font-size: 30rpx;
+  font-size: 40rpx;
   color: white;
   position: absolute; 
   top: 54%;

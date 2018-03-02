@@ -163,13 +163,6 @@ Page({
       path: '/pages/index/index',
     }
   },
-  // refresh: function() {
-  //   this.setData({
-  //     hasRefresh: true,
-  //     hehe: bbbb
-  //   })
-    
-  // },
   onPullDownRefresh: function() {
     this.Weather(longi, lat);
   }

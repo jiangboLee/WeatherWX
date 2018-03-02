@@ -67,10 +67,6 @@
   module.exports.nowBackImage = nowBackImage;
 </wxs>
 <view class='backgroundView'>
-  <!-- <view wx:if="{{hasRefresh}}" style='display: flex;felx-direction: row;align-items: center;align-self: center;justify-content: center;'>
-     <icon type='waiting' size='45'><text>更新中...</text></icon></view>
-  <view wx:else style="display:none"><text></text></view> -->
-  <!-- <scroll-view class='bgScrollView' scroll-y="true" style='height: 100%' bindscrolltoupper='refresh'     enable-back-to-top="true"> -->
     <view class='content'>
     <!-- iamge标签可以加载本地图片，但背景图片用网络图片或者base64的才能在手机端显示。 -->
       <view class='topView'>
