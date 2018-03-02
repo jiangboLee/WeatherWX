@@ -11,7 +11,7 @@ Page({
   data: {
     location: '上海市',
     hasRefresh: false,
-    nowBackGround: [],
+    nowBackGround: [100, 8],
     nowTemperature: '0 ℃',
     nowWind: '晴/东北风  微风',
     nowAir: '50  优',
@@ -163,13 +163,13 @@ Page({
       path: '/pages/index/index',
     }
   },
-  refresh: function() {
-    this.setData({
-      hasRefresh: true,
-      hehe: bbbb
-    })
+  // refresh: function() {
+  //   this.setData({
+  //     hasRefresh: true,
+  //     hehe: bbbb
+  //   })
     
-  },
+  // },
   onPullDownRefresh: function() {
     this.Weather(longi, lat);
   }
