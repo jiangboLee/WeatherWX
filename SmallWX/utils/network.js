@@ -16,5 +16,5 @@ function _get(url, data, success, fail, completed) {
 }
 
 module.exports = {
-  _get: _get
+  _get
 }

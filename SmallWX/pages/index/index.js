@@ -1,6 +1,7 @@
 //获取应用实例
 
 var network_util = require('../../utils/network.js');
+var util = require('../../utils/util.js');
 
 const app = getApp()
 var location;
@@ -18,6 +19,7 @@ Page({
     hourlyArr: [],
     dailyForecast: [],
     lifeStyle: [],
+    week: ''
   },
   gotest: function() {
     wx.navigateTo({
@@ -92,6 +94,9 @@ Page({
   },
   onLoad: function () {
     this.getLocationAction()
+    this.setData({
+      week: util.weekDay()
+    })
   },
   getLocationAction: function() {
     // var location;

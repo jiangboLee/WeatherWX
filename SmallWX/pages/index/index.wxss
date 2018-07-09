@@ -79,6 +79,15 @@
   left: 0;
   right: 0;
 }
+.week{
+  text-align: center;
+  font-size: 60rpx;
+  color: white;
+  position: absolute; 
+  top: 65%;
+  left: 0;
+  right: 0;
+}
 .hourly {
   height: 308rpx;
   white-space: nowrap; 

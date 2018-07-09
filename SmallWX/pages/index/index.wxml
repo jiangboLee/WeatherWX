@@ -80,6 +80,7 @@
         <view class='nowTemp'>{{nowTemperature}}</view>
         <view class='nowWind'>{{nowWind}}</view>
         <view class='air_now'>{{nowAir}}</view>
+        <view class='week'>{{week}}</view>
       </view>
       <scroll-view class='hourly' scroll-x="true">
         <block wx:for="{{hourlyArr}}" wx:key="unique" style="display: block;">
