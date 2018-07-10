@@ -1,0 +1,42 @@
+.item{
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+.title {
+  text-align: center;
+  font-size: 40rpx;
+  margin: 24rpx;
+  font-weight: bold;
+}
+.float {
+  overflow: hidden;
+}
+.item image {
+  width: 400rpx;
+  height: 400rpx;
+   padding: 10rpx; 
+  float: left;
+  border-radius: 10rpx;
+}
+.item image::after{
+  clear: both;
+  content: '';
+  display: table;
+}
+.des {
+  text-indent: 2em;
+  font-size: 36rpx;
+  color: gray;
+  margin-right: 20rpx;
+  text-justify: inter-ideograph;
+  text-align: justify;
+}
+.nodes {
+  text-indent: 2em;
+  font-size: 36rpx;
+  color: gray;
+  margin: 0 20rpx;
+  text-justify: inter-ideograph;
+  text-align: justify;
+  margin-bottom: 10rpx;
+}

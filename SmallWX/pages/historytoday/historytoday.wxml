@@ -1,0 +1,9 @@
+<block wx:for="{{result.result}}" wx:key="index">
+<view class='item'>
+  <view class='title'>{{item.title}}</view> 
+  <view class='float'>
+    <image src='{{item.pic}}' mode='aspectFill' wx:if="{{item.pic.length > 0}}" align="left"></image>
+    <view class="{{item.pic.length > 0 ? 'des' : 'nodes'}}">{{item.des}}</view>
+  </view>
+</view>
+</block>

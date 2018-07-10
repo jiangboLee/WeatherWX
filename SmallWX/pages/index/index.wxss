@@ -88,6 +88,18 @@
   left: 0;
   right: 0;
 }
+.historytoday {
+  width: 280rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  color: wheat;
+  background: green;
+  position: absolute; 
+  top: 85%;
+  right: 0;
+  border-radius: 40rpx 0 0 40rpx;
+}
 .hourly {
   height: 308rpx;
   white-space: nowrap; 

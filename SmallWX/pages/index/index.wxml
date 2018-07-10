@@ -81,6 +81,7 @@
         <view class='nowWind'>{{nowWind}}</view>
         <view class='air_now'>{{nowAir}}</view>
         <view class='week'>{{week}}</view>
+        <view class='historytoday' bindtap='lookHistory'>历史上的今天</view>
       </view>
       <scroll-view class='hourly' scroll-x="true">
         <block wx:for="{{hourlyArr}}" wx:key="unique" style="display: block;">

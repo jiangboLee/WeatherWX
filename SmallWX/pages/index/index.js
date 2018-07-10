@@ -170,5 +170,12 @@ Page({
   },
   onPullDownRefresh: function() {
     this.Weather(longi, lat);
+  },
+
+  //查看历史上的今天
+  lookHistory: function() {
+    wx.navigateTo({
+      url: '/pages/historytoday/historytoday',
+    })
   }
 })
