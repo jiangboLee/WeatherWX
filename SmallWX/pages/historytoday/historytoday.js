@@ -18,9 +18,12 @@ Page({
 
   getHistoryData: function() {
     var that = this;
+<<<<<<< HEAD
     wx.showLoading({
       title: '正在加载中...',
     })
+=======
+>>>>>>> e1420e05b6db69cbddb8342300f59cebc1933ca1
     var url = "https://www.ljbniubi.top/wx/api/history"
     var data = {
       key: "207e4c3b38f969392aee546c3970007e",
@@ -36,7 +39,11 @@ Page({
     }, function (res) {
 
     }, function () {
+<<<<<<< HEAD
       wx.hideLoading();
+=======
+
+>>>>>>> e1420e05b6db69cbddb8342300f59cebc1933ca1
     });
   },
 
@@ -49,6 +56,16 @@ Page({
   },
 
   /**
+<<<<<<< HEAD
+=======
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    
+  },
+
+  /**
+>>>>>>> e1420e05b6db69cbddb8342300f59cebc1933ca1
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
