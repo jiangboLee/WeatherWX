@@ -31,7 +31,7 @@ Page({
     var _this = this;
     //数据集合
     var url = "https://free-api.heweather.com/s6/weather";
-    var airUrl = "https://free-api.heweather.com/s6/air";
+    var airUrl = "https://free-api.heweather.com/s6/air/now";
     var data = {
       key: "bff5cc9bcfdf46b0a0e9bf0c260ff14f",
       location: location ? longi + "," + lat : "shanghai",
@@ -61,7 +61,7 @@ Page({
     });
     //空气质量请求
     network_util._get(airUrl, data, function(res) {
-      // console.log(res.data)
+      console.log(res.data)
       var nowAirCity = res.data.HeWeather6[0].air_now_city;
       _this.setData({
         nowAir: nowAirCity.aqi + "  " + nowAirCity.qlty,

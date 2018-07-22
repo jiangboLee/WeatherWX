@@ -25,16 +25,20 @@ Page({
     var data = {
       key: "207e4c3b38f969392aee546c3970007e",
       v: "1.0",
-      month: new Date().getMonth(),
-      day: new Date().getDay()
+      month: (new Date()).getMonth() + 1,
+      day: (new Date()).getDate()
     }
+    // console.log(data)
     network_util._get(url, data, function (res) {
       console.log(res.data)
       that.setData({
         result: res.data
       })
     }, function (res) {
-
+      wx.showModal({
+        title: 'sorry',
+        content: '网络出错啦~',
+      })
     }, function () {
       wx.hideLoading();
     });
